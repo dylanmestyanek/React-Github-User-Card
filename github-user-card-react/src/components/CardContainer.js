@@ -9,25 +9,39 @@ class CardContainer extends React.Component {
 
     render(){
         return(
-            <UserList>
-                    <h1>GitHub User Cards!</h1>
-                {
-                    this.props.user.map(user => <Card user={user} />)
-                }
-            </UserList>
+            <UserListContainer>
+                <h1>GitHub User Cards!</h1>
+                <UserList>
+                    {
+                        this.props.user.map(user => <Card user={user} />)
+                    }
+                </UserList>
+            </UserListContainer>
         )
     }
 }
 
 export default CardContainer
 
-const UserList = styled.div`
+const UserListContainer = styled.div`
     width: 100%;
-    margin: 0 auto;
     background: #247B66;
-    padding-top: 50px;
+    margin: 0 auto;
 
     h1 {
         text-align: center;
+        background: #247b66;
+        margin: 0;
+        padding-top: 20px;
     }
 `;
+
+const UserList = styled.div`
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+`;
+

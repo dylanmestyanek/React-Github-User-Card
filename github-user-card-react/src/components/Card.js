@@ -8,7 +8,7 @@ class Card extends React.Component {
             <CharacterCard>
                 <img src={this.props.user.avatar_url} alt="GitHub User" />
                 <CharacterText>
-                    <h1>{this.props.user.name}</h1>
+                    <h2>{this.props.user.name}</h2>
                     <p><em>{this.props.user.login}</em></p>
                     <p>{this.props.user.location ? this.props.user.location : <em>null</em>}</p>
                     <p>Profile: <a href={this.props.user.html_url}>{this.props.user.html_url}</a></p>
@@ -16,7 +16,6 @@ class Card extends React.Component {
                     <p>Following: {this.props.user.following}</p>
                     <p>Bio: {this.props.user.bio}</p>
                 </CharacterText>
-                <GitButton>View Git History</GitButton>
             </CharacterCard>
         );
     }
@@ -26,17 +25,17 @@ export default Card
 
 const CharacterCard = styled.div`
 position: relative;
-    width: 50%;
+    width: 40%;
     background: linear-gradient(#8BDBD8, #407C9F);
     display: flex;
     align-items: center;
-    margin: 20px auto;
-    padding: 20px 20px 80px 20px;
+    margin: 20px;
+    padding: 20px;
     border-radius: 5px;
     box-shadow: 5px 5px 10px 1px black;
 
     img {
-        width: 20%;
+        width: 30%;
         border-radius: 3px;
     }
 `;
@@ -50,7 +49,7 @@ const CharacterText = styled.div`
     box-sizing: border-box;
     padding-left: 10px;
 
-    h1 {
+    h2 {
         font-size: 1.5rem;
         margin: 0;
         margin-top: -5px;
