@@ -16,7 +16,7 @@ class Card extends React.Component {
                     <p>Following: {this.props.user.following}</p>
                     <p>Bio: {this.props.user.bio}</p>
                 </CharacterText>
-                {/* <button>View Git History</button> */}
+                <GitButton>View Git History</GitButton>
             </CharacterCard>
         );
     }
@@ -25,12 +25,13 @@ class Card extends React.Component {
 export default Card
 
 const CharacterCard = styled.div`
+position: relative;
     width: 50%;
     background: linear-gradient(#8BDBD8, #407C9F);
     display: flex;
     align-items: center;
     margin: 20px auto;
-    padding: 20px;
+    padding: 20px 20px 80px 20px;
     border-radius: 5px;
     box-shadow: 5px 5px 10px 1px black;
 
@@ -58,5 +59,22 @@ const CharacterText = styled.div`
     p {
         font-size: .8rem;
         margin: 1px 0;
+    }
+`;
+
+const GitButton = styled.button`
+    position: absolute;
+    width: 150px;
+    left: 40%;
+    top: 80%;
+    border: none;
+    background: #8BDBD8;
+    border-radius: 5px;
+    padding: 5px 0;
+    transition: all .3s;
+
+    &:hover {
+        background: #247B66;
+        color: white;
     }
 `;

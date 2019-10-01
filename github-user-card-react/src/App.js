@@ -14,6 +14,9 @@ class App extends React.Component {
   componentDidMount(prevState, setState){
     // Call for my GitHub account followers
     axios.get("https://api.github.com/users/dylanmestyanek/followers")
+    // Axios call returns an array of followers, then enter a forEach loop,
+    // and make an axios call for each user's profile url
+    // which returns all information to populate Card.js
     .then(res => res.data.forEach(user => {
       axios.get(user.url)
       .then(res => this.setState({
@@ -22,6 +25,7 @@ class App extends React.Component {
     }))
     .catch(err => console.log("Whoops Followers Broke", err))
     
+    // Calls my GitHub profile and returns an object of my account information
     axios.get("https://api.github.com/users/dylanmestyanek")
       .then(res => this.setState({ 
         user: [...this.state.user,  res.data]
